@@ -4,10 +4,9 @@ exports.register = async (req, res) => {
   const { nombre, email, password } = req.body;
   const query = "INSERT INTO usuarios (nombre, email, password) VALUES (?,?,?)";
   const values = [nombre, email, password];
-
   try {
     const [result] = await db.query(query, values);
-    res.json({ message: "Usuario Registrado Exitosamente " });
+    res.json({ message: "Usuario Registrado Exitosamente" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
