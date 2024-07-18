@@ -62,9 +62,28 @@ select * from clientes;
 select * from productos;
 select * from detalle_ventas;
 
-
-
 select A.id, A.venta_id, B.nombre as 'Producto', A.cantidad,A.precio  from detalle_ventas as A
-join productos as B on A.producto_id = B.id
+join productos as B on A.producto_id = B.id;
+
+
+create table pedidos (
+	id int auto_increment primary key,
+    cliente_id int,
+    fecha timestamp default current_timestamp,
+    total decimal(10,2),
+    foreign key (cliente_id) references clientes(id)
+);
+
+create table detalles_pedidos(
+	id int auto_increment primary key,
+    pedido_id int,
+    producto_id int,
+    cantidad int,
+    precio decimal(10,2),
+    foreign key (pedido_id) references pedidos(id),
+    foreign key (producto_id) references productos(id)
+);
+    
+    
 
 

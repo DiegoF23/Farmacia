@@ -7,6 +7,7 @@ const authRoutes = require('./routes/authRoutes')
 const productRoutes= require('./routes/productRoutes')
 const clientRoutes= require('./routes/clientRoutes')
 const saleRouter = require ('./routes/saleRoutes')
+const pedidoRoutes = require('./routes/pedidosRoutes')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,3 +21,4 @@ app.use('/',authRoutes);
 app.use('/',productRoutes);
 app.use('/',clientRoutes);
 app.use('/',saleRouter);
+app.use('/',pedidoRoutes);
